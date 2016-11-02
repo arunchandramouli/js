@@ -5,58 +5,39 @@
   We will define a function and pass some arguments to it
 
 */
-// Define the Person constructor
-var Person = function(firstName) {
-  this.firstName = firstName;
-};
+// Define the function
 
-// Add a couple of methods to Person.prototype
-Person.prototype.walk = function(){
-  console.log("I am walking!");
-};
+    function rating(rating){
 
-Person.prototype.sayHello = function(){
-  console.log("Hello, I'm " + this.firstName);
-};
+      /*
+          Inside the function body we will add some if-else / switch logic to compute and return the hike %
+      */
 
-// Define the Student constructor
-function Student(firstName, subject) {
-  // Call the parent constructor, making sure (using call)
-  // that "this" is set correctly during the call
-  Person.call(this, firstName);
+      if (rating > 9 && rating <= 10){
 
-  // Initialize our Student-specific properties
-  this.subject = subject;
+           return 'Hike to be offerred for rating == '+rating +' will be 100 %'
+      }
+
+      else if(rating > 6 && rating <= 9){
+
+          return 'Hike to be offerred for rating == '+rating +' will be 70 %'
+      }
+
+    else if(rating > 4 && rating <= 6){
+
+          return 'Hike to be offerred for rating == '+rating +' will be 40 %'
+      }
+
+    else{
+
+        return 'Hike to be offerred for rating == '+rating +' will be 30 %'
+    }
+
 }
 
-// Create a Student.prototype object that inherits from Person.prototype.
-// Note: A common error here is to use "new Person()" to create the
-// Student.prototype. That's incorrect for several reasons, not least 
-// that we don't have anything to give Person for the "firstName" 
-// argument. The correct place to call Person is above, where we call 
-// it from Student.
-Student.prototype = Object.create(Person.prototype); // See note below
+console.log("Using if-else if- else construct ... \n\n");
 
-// Set the "constructor" property to refer to Student
-Student.prototype.constructor = Student;
+for (var x = 0; x<=10;x++){
 
-// Replace the "sayHello" method
-Student.prototype.sayHello = function(){
-  console.log("Hello, I'm " + this.firstName + ". I'm studying "
-              + this.subject + ".");
-};
-
-// Add a "sayGoodBye" method
-Student.prototype.sayGoodBye = function(){
-  console.log("Goodbye!");
-};
-
-// Example usage:
-var student1 = new Student("Janet", "Applied Physics");
-student1.sayHello();   // "Hello, I'm Janet. I'm studying Applied Physics."
-student1.walk();       // "I am walking!"
-student1.sayGoodBye(); // "Goodbye!"
-
-// Check that instanceof works correctly
-console.log(student1 instanceof Person);  // true 
-console.log(student1 instanceof Student); // true
+  console.log(rating(x));  
+}
