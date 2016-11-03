@@ -41,3 +41,63 @@ for (var x = 0; x<=10;x++){
 
   console.log(rating(x));  
 }
+
+console.log("\n\n");
+
+/*
+  Aim :: Using Inner functions - using if-else
+*/
+
+
+function greet(who,gender){
+
+    function honor() {
+
+        if (gender == 'male') {
+
+          return 'We Welcome Mr ' + who
+        }
+        else{
+          return 'We Welcome Ms ' + who
+        }
+    }
+
+    return honor()
+}
+
+console.log(greet("Mary",'female'));
+console.log(greet("Peter",'male'));
+console.log("\n\n");
+
+
+/*
+  Aim :: Using Inner functions - using switch
+*/
+
+
+
+function greet(who,gender){
+
+    function honor() {
+
+
+        switch(gender){
+
+
+          case 'male':
+
+                return 'We Welcome Mr ' + who
+                break;
+
+          default :
+                return 'We Welcome Ms ' + who
+                break;
+        }
+
+        
+    }
+    return honor()
+}
+
+console.log(greet("Mary",'female'));
+console.log(greet("Peter",'male'));
